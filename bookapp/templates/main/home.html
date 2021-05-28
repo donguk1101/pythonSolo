@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  {% extends 'main/main.html' %}
+  {% block content %}
+  {% load static %}
+  <div class="row">
+      <div class="main_box">
+        <img src="{% static 'img/new_book.png' %}" class="main_img"></img>
+          <ul>
+              <li class="col_1">주목 할만한 책</li>
+              <li class="col_2">이주의 책</li>
+              <li class="col_3">이벤트</li>
+              <li class="col_4">기획</li>
+          </ul>
+      </div>
+  </div>
+<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+{% endblock %}
+</body>
+</html>

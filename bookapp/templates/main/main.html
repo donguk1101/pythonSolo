@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  {% load static %}
+  <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"  type="text/css" href="{% static 'css/style.css' %}" >
+<link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
+<script src="{% static 'js/all.min.js' %}"></script>
+</head>
+<body>
+<div class="head_row" style="height:150px">
+  <img src="{% static 'img/logo1.png' %}" class="logo_img">
+  <input type="text" class="searchbar input-lg" size="50" autocomplete="off">
+</div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="../shop/">국내 도서</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+      <li><a href="../join/">회원가입</a></li>
+    </ul>
+  </div>
+</nav>
+  {% block page %}
+<div class="main_row">
+  <ul class="side_menu">
+    <li><em>임신 출산</em></li>
+    <li><em>건강 취미</em>
+        <div class="side_detail_menu">
+          <ul>
+            <li><em>테스트</em></li>
+            <li><em>테스트</em></li>
+            <li><em>테스트</em></li>
+          </ul>
+        </div>
+    </li>
+    <li><em>국어 외국어 사전</em></li>
+    <li><em>만화/라이트노벨</em></li>
+    <li><em>수험서 자격증</em></li>
+    <li><em>예술</em></li>
+    <li><em>잡지</em></li>
+    <li><em>자기계발</em></li>
+    <li><em>자연과학</em></li>
+    <li><em>전집</em></li>
+    <li><em>종교</em></li>
+    <li><em>인문</em></li>
+    <li><em>경제 경영</em></li>
+    <li><em>인물</em></li>
+    <li><em>가정 살림</em></li>
+    <li><em>대학교재</em></li>
+    <li><em>초등참고서</em></li>
+    <li><em>중등참고서</em></li>
+    <li><em>어린이</em></li>
+    <li><em>IT 모바일</em></li>
+    <li><em>사회 정치</em></li>
+    <li><em>여행</em></li>
+    <li><em>유아</em></li>
+    <li><em>청소년</em></li>
+  </ul>
+{% block content %}
+  {% endblock %}
+  </div>
+<div class="chat_row">
+  <button class="chat_btn"><i class="far fa-comment-dots fa-2x" style="color:white"></i></button>
+</div>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+</body>
+</html>

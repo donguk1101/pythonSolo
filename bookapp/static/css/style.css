@@ -1,0 +1,116 @@
+.row{
+    width: 1200px;
+    float: left;
+    margin: 0px auto;
+}
+.head_row{
+    width: 1200px;
+    margin: 0px auto;
+}
+/*메뉴상단*/
+.searchbar{
+    margin: 3em 16em 0px 0px;
+    border-color: #97d3e2;
+}
+.logo_img{
+    margin-left: 15em;
+    margin-right:1em;
+}
+/* 메뉴*/
+.navbar-inverse{ /*메뉴색*/
+    background-color: #6fc3d7b8;
+    border-color: #fff;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover{
+    color: #fff;
+    background-color: #fdbdbd;
+}
+.navbar-nav {
+    float: left;
+    margin: 0px 50em;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #fffbfb;
+}
+/*메인 박스*/
+.main_box{
+    width:1000px;
+    height: 500px;
+}
+.main_box > ul {
+}
+
+.main_box > ul > li{
+    list-style: none;
+    display: block;
+    float: left;
+    background-color: #f8f8f8;
+    color: #666;
+    width: 16em;
+    height: 3em;
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid;
+    margin-left: 1px;
+    border-color: #c8c8c8;
+}
+.main_box > ul > li:hover{
+    background-color: #97d3e2;
+    color: white;
+
+}
+.main_img{
+    width:1000px;
+    height:350px;
+}
+/*사이드 메뉴*/
+.side_menu{
+    width: 26em;
+    float: left;
+    list-style:none;
+    margin-left: 6em;
+}
+.side_menu > li > em{
+    display: block;
+    width: 11em;
+    margin: 4px 0px;
+}
+.side_menu > li > em:hover{
+    background: #97d3e2;
+    color: white;
+}
+.side_detail_menu{
+    display: none;
+    position: absolute;
+    left: 18em;
+    border: 3px double #97d3e2;
+    color: black;
+    width: 12em;
+    top: 18em;
+    z-index: 19;
+    background-color: white;
+    border-radius: 8px;
+}
+.side_detail_menu ul{
+    list-style:none;
+}
+.side_detail_menu > ul > li:hover{
+    color: #fdbdbd;
+    cursor: pointer;
+}
+/* 채팅*/
+.chat_row{
+    width:100%
+}
+.chat_btn{
+    float: right;
+    position: fixed;
+    bottom: 2em;
+    width: 3em;
+    height: 3em;
+    border-radius: 20px;
+    background-color: #fdbdbd;
+}
+.fa-comment-dots{
+
+}
