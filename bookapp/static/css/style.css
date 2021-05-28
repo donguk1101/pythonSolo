@@ -1,3 +1,6 @@
+body{
+    font-family:나눔고딕
+}
 .row{
     width: 1200px;
     float: left;
@@ -6,6 +9,9 @@
 .head_row{
     width: 1200px;
     margin: 0px auto;
+}
+.main_row{
+    42em;
 }
 /*메뉴상단*/
 .searchbar{
@@ -100,17 +106,65 @@
 }
 /* 채팅*/
 .chat_row{
-    width:100%
+    width: 100%;
+    float: right;
+    height: 10em;
+
 }
 .chat_btn{
     float: right;
     position: fixed;
     bottom: 2em;
+    right: 4em;
     width: 3em;
     height: 3em;
     border-radius: 20px;
     background-color: #fdbdbd;
 }
-.fa-comment-dots{
+.phone{
+    width: 20em;
+    height: 34em;
+    border: 11px double #97d3e2;
+    display: block;
+    float: right;
+    position: fixed;
+    right: 3em;
+    bottom: 6em;
+    z-index: 20;
+    background-color: #fff;
+    border-radius: 23px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.phone_input{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 18.4em;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 12px;
+    padding-left: 5px;
+    height: 33px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-color: #97d3e2;
+}
+.user_chat{
+    display: block;
+    float: right;
+    background-color: #fdbdbd4f;
+    border: #fdbdbd 1px solid;
+    margin-right: 8px;
+    margin-top: 8px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 21px;
+    border-top-right-radius: 23px;
+}
+.user_chat > ul > li{
+     text-align: right;
+    margin-right: 2em;
+    list-style: none;
+    margin-top: 12px;
+    font-size: 13pt;
 
 }
