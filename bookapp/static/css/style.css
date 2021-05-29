@@ -1,5 +1,5 @@
 body{
-    font-family:나눔고딕
+    font-family:나눔고딕 400
 }
 .row{
     width: 1200px;
@@ -91,8 +91,8 @@ body{
     left: 18em;
     border: 3px double #97d3e2;
     color: black;
-    width: 12em;
-    top: 18em;
+    width: 14em;
+    top: 16em;
     z-index: 19;
     background-color: white;
     border-radius: 8px;
@@ -166,5 +166,26 @@ body{
     list-style: none;
     margin-top: 12px;
     font-size: 13pt;
+}
+/* 리스트*/
+.list_card{
+       width: 52em;
+    margin-top: 1em;
+    border-bottom: 1px solid gray;
+    font-size: 12pt
+}
+.list_card img{
+    height: 16em;
+    border-right: ridge;
+    width: 11em;
+    margin: 18px 0px;
+}
+.list_page_block{
+    list-style: none;
 
 }
+.list_page_block > li{
+
+
+}
+

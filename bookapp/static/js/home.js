@@ -3,6 +3,7 @@
     change(name);
 
 })*/
+
 $(function(){
     $('li[class^=col_]').hover(function(){
         name=$(this).attr('class');
@@ -17,3 +18,4 @@ function change(name){
     img_name=img[name[name.length-1]-1];
    $('.main_img').attr('src','/static'+img_name);
 }
+

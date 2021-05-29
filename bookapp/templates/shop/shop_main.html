@@ -5,7 +5,48 @@
     <title>Title</title>
 </head>
 <body>
-  {% include '../main/main.html' %}
-  <h1>쇼핑몰 메인</h1>
+  {% extends 'main/main.html' %}
+  {% block content %}
+  <div class="row">
+      <h1>쇼핑몰 리스트</h1>
+      {% for list in bookList %}
+      <table class="list_card">
+          <tr>
+              <td rowspan="4" width="30%" class="text-center">
+                  <img src="{{list.poster}}">
+              </td>
+              <td width="70%" class="text_td"><b>{{list.title}}<b></b></td>
+          </tr>
+          <tr>
+              {% if list.subtitle == none %}
+              <td width="70%"  class="text_td">{{list.title}}</td>
+              {% else %}
+              <td width="70%"  class="text_td">{{list.subtitle}}</td>
+              {% endif %}
+          </tr>
+          <tr>
+              <td width="70%" class="text_td">{{list.author}}
+             | {{list.company}} </td>
+          </tr>
+          <tr>
+              <td width="70%"  class="text_td"><b>{{list.price}}원</b></td>
+          </tr>
+
+      </table>
+      {% endfor %}
+      <ul class="pagination">
+          {% if startpage > 1 %}
+            <li><a href="?tb={{tablename}}&page={{startpage|add:-10}}">&lt;</a></li>
+          {% endif %}
+          {% for i in range %}
+              <li><a href="?tb={{tablename}}&page={{i}}">{{i}}</a></li>
+          {% endfor %}
+          {% if endpage <= totalpage %}
+            <li><a href="?tb={{tablename}}&page={{endpage|add:+1}}">&gt;</a></li>
+          {% endif %}
+    </ul>
+  </div>
+
+  {% endblock %}
 </body>
 </html>
