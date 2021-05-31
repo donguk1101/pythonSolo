@@ -122,8 +122,8 @@ body{
     background-color: #fdbdbd;
 }
 .phone{
-    width: 20em;
-    height: 34em;
+    width: 25em;
+    height: 36em;
     border: 11px double #97d3e2;
     display: block;
     float: right;
@@ -140,7 +140,7 @@ body{
     display: block;
     position: absolute;
     bottom: 0;
-    width: 18.4em;
+    width: 23.4em;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 12px;
     padding-left: 5px;
@@ -160,12 +160,33 @@ body{
     border-bottom-left-radius: 21px;
     border-top-right-radius: 23px;
 }
+.bot_chat{
+    display: block;
+    float: left;
+    margin-right: 5px;
+    margin-top: 8px;
+}
+.bot_chat button{
+    background-color: #dedede12;
+    border: 0.4px solid #0000005e;
+    width: 10em;
+    border-radius: 29px;
+}
+.bot_chat > ul > li{
+    margin-right: 2em;
+    list-style: none;
+    margin-top: 12px;
+    font-size: 13pt;
+}
 .user_chat > ul > li{
      text-align: right;
     margin-right: 2em;
     list-style: none;
     margin-top: 12px;
     font-size: 13pt;
+}
+.qBtn:hover{
+    background-color: #97d4e24f;
 }
 /* 리스트*/
 .list_card{

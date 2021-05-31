@@ -5,6 +5,7 @@
     <title>Title</title>
   {% load static %}
   <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+   <script type="text/javascript" src="{% static 'js/ajax.js' %}"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet"  type="text/css" href="{% static 'css/style.css' %}" >
 <link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -34,7 +35,7 @@
           <ul>
             <li><em>임신/출산</em></li>
             <li><em>육아</em></li>
-            <li><em>요리</em></li>
+            <li><em>자녀교육</em></li>
             <li><em>집/살림</em></li>
             <li><em>결혼/가족</em></li>
           </ul>
@@ -63,10 +64,7 @@
     <li no="3"><em>국어 외국어 사전</em>
       <div class="side_detail_menu">
           <ul>
-            <li><em>영어</em></li>
             <li><em>국어</em></li>
-            <li><em>일본어</em></li>
-            <li><em>중국어</em></li>
             <li><em>독일어</em></li>
             <li><em>러시아어</em></li>
             <li><em>스페인어</em></li>
@@ -74,147 +72,11 @@
             <li><em>프랑스어</em></li>
             <li><em>여행회화/어학연수</em></li>
             <li><em>기타 언어</em></li>
-            <li><em>사전류</em></li>
             <li><em>한자/옥편</em></li>
           </ul>
         </div>
     </li>
-    <li no="4"><em>만화/라이트노벨</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="5"><em>수험서 자격증</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="6"><em>예술</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="7"><em>잡지</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="8"><em>자기계발</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="9"><em>자연과학</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="10"><em>전집</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="11"><em>종교</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="12"><em>인문</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="13"><em>경제 경영</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>경제</em></li>
-            <li><em>경영</em></li>
-            <li><em>투자/재테크</em></li>
-            <li><em>마케팅/세일즈</em></li>
-            <li><em>CEO/비즈니스맨</em></li>
-            <li><em>인터넷비즈니스</em></li>
-            <li><em>총람/연감</em></li>
-            <li><em>정부간행물</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="14"><em>인물</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="15"><em>가정 살림</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="16"><em>대학교재</em>
+    <li no="4"><em>대학교재</em>
       <div class="side_detail_menu">
           <ul>
             <li><em>경상계열</em></li>
@@ -229,95 +91,110 @@
             <li><em>인문학 계열</em></li>
             <li><em>자연과학 계열</em></li>
             <li><em>방송통신대학교</em></li>
-
           </ul>
         </div>
     </li>
-    <li no="17"><em>초등참고서</em>
+    <li no="5"><em>경제 경영</em>
       <div class="side_detail_menu">
           <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
+            <li><em>경제</em></li>
+            <li><em>경영</em></li>
+            <li><em>투자/재테크</em></li>
+            <li><em>마케팅/세일즈</em></li>
+            <li><em>CEO/비즈니스맨</em></li>
+            <li><em>인터넷비즈니스</em></li>
+            <li><em>총람/연감</em></li>
+            <li><em>정부간행물</em></li>
           </ul>
         </div>
     </li>
-    <li no="18"><em>중등참고서</em>
+    <li no="6"><em>만화/라이트노벨</em>
       <div class="side_detail_menu">
           <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
+            <li><em>웹툰 </em></li>
+            <li><em>액션</em></li>
+            <li><em>로맨스 </em></li>
+            <li><em>스포츠</em></li>
+            <li><em>판타지</em></li>
+            <li><em>코믹 </em></li>
+            <li><em>드라마</em></li>
+            <li><em>학원</em></li>
+            <li><em>SF/밀리터리</em></li>
+            <li><em>공포/추리</em></li>
+            <li><em>역사/시대물 </em></li>
+            <li><em>취미와 직업</em></li>
+            <li><em>유럽 만화 </em></li>
+            <li><em>동물만화 </em></li>
+            <li><em>인디만화 </em></li>
+            <li><em>화보집/캐릭터 상품 </em></li>
+            <li><em>교양만화/비평/작법</em></li>
           </ul>
         </div>
     </li>
-    <li no="19"><em>어린이</em>
+    <li no="7"><em>사회 정치</em>
       <div class="side_detail_menu">
           <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
+            <li><em>사회비평/비판</em></li>
+            <li><em>사회단체/NGO</em></li>
+            <li><em>정치/외교</em></li>
+            <li><em>사회학</em></li>
+            <li><em>여성/젠더</em></li>
+            <li><em>교육</em></li>
+            <li><em>언론학/미디어론</em></li>
+            <li><em>생태/환경</em></li>
+            <li><em>행정</em></li>
+            <li><em>미래예측</em></li>
+            <li><em>법</em></li>
+            <li><em>국방/군사</em></li>
           </ul>
         </div>
     </li>
-    <li no="20"><em>IT 모바일</em>
+    <li no="8"><em>소설/시/희곡</em>
       <div class="side_detail_menu">
           <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
+            <li><em>장르소설</em></li>
+            <li><em>테마소설</em></li>
+            <li><em>고전문학</em></li>
+            <li><em>시/희곡</em></li>
+            <li><em>비평/창작/이론</em></li>
+            <li><em>한국소설</em></li>
+            <li><em>영미소설</em></li>
+            <li><em>일본소설</em></li>
+            <li><em>중국소설</em></li>
+            <li><em>프랑스소설</em></li>
+            <li><em>독일소설</em></li>
+            <li><em>러시아소설</em></li>
+            <li><em>스페인/중남미소설</em></li>
+            <li><em>북유럽소설</em></li>
+            <li><em>세계각국소설</em></li>
           </ul>
         </div>
     </li>
-    <li no="21"><em>사회 정치</em>
+    <li no="9"><em>수험서 자격증</em>
       <div class="side_detail_menu">
           <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
+            <li><em>한국사능력검정시험</em></li>
+            <li><em>고등고시/전문직</em></li>
+            <li><em>교원임용시험</em></li>
+            <li><em>법/인문/사회</em></li>
+            <li><em>보건/위생/의학</em></li>
+            <li><em>PSAT(외시/행시/7급)</em></li>
+            <li><em>기타/신규 자격증</em></li>
           </ul>
         </div>
     </li>
-    <li no="22"><em>여행</em>
+    <li no="10"><em>어린이</em>
       <div class="side_detail_menu">
           <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
+            <li><em>초등 1-2학년</em></li>
+            <li><em>초등 3-4학년</em></li>
           </ul>
         </div>
     </li>
-    <li no="23"><em>유아</em>
+    <li no="11"><em>IT 모바일</em>
       <div class="side_detail_menu">
           <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-          </ul>
-        </div>
-    </li>
-    <li no="24"><em>청소년</em>
-      <div class="side_detail_menu">
-          <ul>
-            <li><em>건강에세이/건강기타</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
-            <li><em>테스트</em></li>
+            <li><em>인터넷 비즈니스</em></li>
           </ul>
         </div>
     </li>
@@ -337,6 +214,11 @@
         <li>안녕하세요. 장문입니다안녕하세요. 장문입니다안녕하세요. 장문입니다</li>
       </ul>
      </div>
+    <div class="bot_chat">
+      <ul>
+        <li><button class="qBtn">1 대 1 상담</button></li>
+      </ul>
+    </div>
     <input type="text" class="phone_input">
   </div>
   <span style="float:right;">

@@ -6,4 +6,5 @@ urlpatterns=[
     path('home/',views.home),
     path('shop/',views.shop_main),
     path('join/',views.join),
+    path('msg',views.re_msg,name="msg"),
 ]

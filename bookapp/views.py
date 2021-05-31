@@ -1,4 +1,7 @@
-from django.shortcuts import render
+import json
+
+from django.http import HttpResponse
+from django.shortcuts import render,redirect
 from bookapp import models
 import  re
 # Create your views here.
@@ -32,6 +35,15 @@ def shop_main(request):
         bl.append(bb)
     return  render(request,'shop/shop_main.html',{"totalpage":totalpage,"endpage":endpage,"startpage":startpage,"tablename":vTablename,'bookList':bl,"range":range(startpage,endpage+1)})
 
+#MSG
+def re_msg(request):
+    msg=request.POST['msg']
+    arr=models.komoran(msg)
+    box=[]
+    for i in arr:
+        bb={'key':i}
+        box.append(bb)
+    return  HttpResponse(json.dumps(box),content_type="application/json")
 
 #join
 def join(request):

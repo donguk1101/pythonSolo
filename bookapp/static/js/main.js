@@ -17,3 +17,26 @@ $(document).on('click','.side_detail_menu > ul > li',function(){
 function booklist_loc(tb){
     location.href="../shop?tb="+tb
 }
+$(document).on('keydown','.phone_input',function(key){
+        if(key.keyCode==13){
+                send_message()
+        }
+})
+/*키워드 전송 함수 서버로 전송*/
+function send_message(){
+    let msg=$('.phone_input').val();
+    $.ajax({
+           type:'post',
+           data:{'msg':msg},
+           url:'../msg',
+           success:function(result){
+               console.log(result)
+
+           },error:function(error){
+                alert("메세지 전송에러")
+           }
+    })
+}
+function makeBtn(){
+
+}
