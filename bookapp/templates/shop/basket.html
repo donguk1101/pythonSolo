@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'main/main.html' %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    {% block content %}
+    <div class="row">
+        <table class="table basketTable">
+            <tr>
+                <th>    </th>
+                <th colspan="2" >상품정보</th>
+                <th>수량</th>
+                <th>금액</th>
+                <th>주문</th>
+            </tr>
+                {% for i in "111111" %}
+            <tr>
+                 <td ><input type="checkbox"></td>
+                <td >
+                    <img src="http://image.yes24.com/goods/101817855/L">
+                </td>
+                <td ><em><p>송일준 PD 제주도 한 달 살기</p></em></td>
+                <td >
+                    <input type="number" value="1" size="5" class="price_input">
+                </td>
+                <td class="price" price="15300">15,300원</td>
+                <td ></td>
+            </tr>
+                {% endfor %}
+            <tr>
+                <td colspan="6">총 예상금액: <strong id="total"></strong>원</td>
+            </tr>
+        </table>
+    </div>
+
+
+    {% endblock %}
+</body>
+</html>

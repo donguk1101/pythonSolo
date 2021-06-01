@@ -240,3 +240,20 @@ body{
 .pagination{
     margin-left: 19em;
 }
+/*장바구니*/
+.basketTable{
+    margin-top: 8em;
+    width:730px;
+}
+.basketTable th,td{
+    text-align:center;
+}
+
+.basketTable img{
+    width:80px;
+    height:115px;
+}
+.price_input{
+    width: 4em;
+    text-align: center;
+}

@@ -41,6 +41,9 @@ def re_msg(request):
     key=models.mainkey(models.komoran(msg))
     box={'key':str(key[0])}
     return  HttpResponse(json.dumps(box),content_type="application/json")
+#basket
+def basket(request):
+    return  render(request,'shop/basket.html')
 
 #join
 def join(request):

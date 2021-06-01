@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
   {% load static %}
+
   <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
    <script type="text/javascript" src="{% static 'js/ajax.js' %}"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet"  type="text/css" href="{% static 'css/style.css' %}" >
 <link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
-<script src="{% static 'js/all.min.js' %}"></script>
+  <script src="{% static 'js/all.min.js' %}"></script>
 </head>
 <body>
 <div class="head_row" style="height:150px">
@@ -22,7 +23,7 @@
       <li class="active"><a href="{% url 'index' %}">Home</a></li>
       <li><a href="../shop/?tb=임신/출산">국내 도서</a></li>
       <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+      <li><a href="../basket/">장바구니</a></li>
       <li><a href="../join/">회원가입</a></li>
     </ul>
   </div>
@@ -217,6 +218,7 @@
   </span>
 </div>
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/basket.js' %}"></script>
 {% endblock %}
 </body>
 </html>
