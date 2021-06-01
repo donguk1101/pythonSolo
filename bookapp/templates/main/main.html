@@ -20,7 +20,7 @@
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       <li class="active"><a href="{% url 'index' %}">Home</a></li>
-      <li><a href="../shop/">국내 도서</a></li>
+      <li><a href="../shop/?tb=임신/출산">국내 도서</a></li>
       <li><a href="#">Page 2</a></li>
       <li><a href="#">Page 3</a></li>
       <li><a href="../join/">회원가입</a></li>
@@ -204,25 +204,16 @@
   </div>
 <div class="chat_row">
   <div class="phone">
-    <div class="user_chat">
-      <ul>
-        <li>테스트</li>
-      </ul>
-     </div>
-        <div class="user_chat">
-      <ul>
-        <li>안녕하세요. 장문입니다안녕하세요. 장문입니다안녕하세요. 장문입니다</li>
-      </ul>
-     </div>
-    <div class="bot_chat">
+    <div class="bot_button">
       <ul>
         <li><button class="qBtn">1 대 1 상담</button></li>
       </ul>
     </div>
-    <input type="text" class="phone_input">
+    <input type="text" class="phone_input" id="first" placeholder="처음부터 다시하시려면 아래버튼을 눌러주세요">
   </div>
   <span style="float:right;">
-    <button class="chat_btn"><i class="far fa-comment-dots fa-2x" style="color:white"></i></button>
+     <button class="chat_clear"><i class="fas fa-trash fa-2x" style="color:white"></i></button>
+    <button class="chat_btn" value="0"><i class="far fa-comment-dots fa-2x" style="color:white"></i></button>
   </span>
 </div>
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>

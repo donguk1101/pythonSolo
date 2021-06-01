@@ -38,11 +38,8 @@ def shop_main(request):
 #MSG
 def re_msg(request):
     msg=request.POST['msg']
-    arr=models.komoran(msg)
-    box=[]
-    for i in arr:
-        bb={'key':i}
-        box.append(bb)
+    key=models.mainkey(models.komoran(msg))
+    box={'key':str(key[0])}
     return  HttpResponse(json.dumps(box),content_type="application/json")
 
 #join

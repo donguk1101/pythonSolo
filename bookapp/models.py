@@ -69,24 +69,37 @@ def komoran(msg):
 def mainkey(key):
     conn=getConnection()
     cur=conn.cursor()
-    sql=f"""
-            SELECT mainkey from chatbot_m
-            where mainkey = '{key}' 
-        """
-    cur.execute(sql)
-    data=cur.fetchone()
+    list=[]
+    for i in range(0,len(key)):
+        try:
+            sql=f"""
+                    SELECT mainkey from chatbot_m
+                    where mainkey = '{key[i]}' 
+                """
+            cur.execute(sql)
+            data=cur.fetchone()
+            if data == None:
+                continue
+            list.append(data[0])
+        except Exception as e:
+            continue
     cur.close()
     conn.close()
-    if data == None:
-        data="0"
-    return  data[0]
+    if len(list) == 0:
+        list.append(" ")
+    return  list
 
-arr=['택배', '안와']
-count=0
-data=[]
-for i in range(0,len(arr)):
-    data.append(mainkey(arr[count]))
-    count+=1
+def subkey(msg,mainkey):
+    conn=getConnection()
+    cur=conn.cursor()
+    for i in range(0,len(msg)):
 
-print(data)
-print(len(data))
+        sql=f"""
+            SELECT  result from chatbot_s
+            WHERE subkey = '{msg[i]}' and mkey='{mainkey}'
+            """
+        print(sql)
+        cur.execute(sql)
+        data=cur.fetchone()
+        print(data)
+

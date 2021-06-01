@@ -121,7 +121,18 @@ body{
     border-radius: 20px;
     background-color: #fdbdbd;
 }
+.chat_clear{
+    float: right;
+    position: fixed;
+    bottom: 2em;
+    right: 8em;
+    width: 3em;
+    height: 3em;
+    border-radius: 20px;
+    background-color: #fdbdbd;
+}
 .phone{
+    display:none;
     width: 25em;
     height: 36em;
     border: 11px double #97d3e2;
@@ -138,8 +149,8 @@ body{
 }
 .phone_input{
     display: block;
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bottom: 96px;
     width: 23.4em;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 12px;
@@ -159,14 +170,28 @@ body{
     border-top-left-radius: 14px;
     border-bottom-left-radius: 21px;
     border-top-right-radius: 23px;
+    clear: both;
 }
 .bot_chat{
     display: block;
     float: left;
     margin-right: 5px;
     margin-top: 8px;
+    clear: both;
+    border: 1px solid #d0d1d8;
+    border-radius: 18px;
 }
-.bot_chat button{
+.bot_button{
+    display: block;
+    float: left;
+    margin-right: 5px;
+    margin-top: 8px;
+    clear: both;
+}
+.bot_button ul{
+    list-style:none;
+}
+.bot_button button{
     background-color: #dedede12;
     border: 0.4px solid #0000005e;
     width: 10em;
@@ -209,4 +234,9 @@ body{
 
 
 }
+.list_Btn button{
 
+}
+.pagination{
+    margin-left: 19em;
+}

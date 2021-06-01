@@ -15,21 +15,25 @@
               <td rowspan="4" width="30%" class="text-center">
                   <img src="{{list.poster}}">
               </td>
-              <td width="70%" class="text_td"><b>{{list.title}}<b></b></td>
+              <td width="70%" class="text_td" colspan="2"><b>{{list.title}}<b></b></td>
           </tr>
           <tr>
               {% if list.subtitle == none %}
-              <td width="70%"  class="text_td">{{list.title}}</td>
+              <td width="70%"  class="text_td" colspan="2">{{list.title}}</td>
               {% else %}
-              <td width="70%"  class="text_td">{{list.subtitle}}</td>
+              <td width="70%"  class="text_td" colspan="2">{{list.subtitle}}</td>
               {% endif %}
           </tr>
           <tr>
-              <td width="70%" class="text_td">{{list.author}}
+              <td width="70%" class="text_td" colspan="2">{{list.author}}
              | {{list.company}} </td>
           </tr>
           <tr>
-              <td width="70%"  class="text_td"><b>{{list.price}}원</b></td>
+              <td width="40%"  class="text_td"><b>{{list.price}}원</b></td>
+              <td class="list_Btn" width="30%">
+                  <button class="jjim">찜</button>
+                  <button class="basket">장바구니</button>
+              </td>
           </tr>
 
       </table>
