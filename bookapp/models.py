@@ -71,16 +71,17 @@ def mainkey(key):
     cur=conn.cursor()
     sql=f"""
             SELECT mainkey from chatbot_m
-            where mainkey like '%'||'{key}'||'%' 
+            where mainkey = '{key}' 
         """
-    print(sql)
     cur.execute(sql)
-    data=cur.fetchall()
+    data=cur.fetchone()
     cur.close()
     conn.close()
-    return  data
+    if data == None:
+        data="0"
+    return  data[0]
 
-arr=['택배배', '안와']
+arr=['택배', '안와']
 count=0
 data=[]
 for i in range(0,len(arr)):
