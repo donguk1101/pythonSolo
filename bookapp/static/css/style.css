@@ -6,6 +6,11 @@ body{
     float: left;
     margin: 0px auto;
 }
+.join_row{
+ width: 1200px;
+     margin: 0px 49em;
+     height:40em
+}
 .head_row{
     width: 1200px;
     margin: 0px auto;
@@ -256,4 +261,21 @@ body{
 .price_input{
     width: 4em;
     text-align: center;
+}
+/*회원가입*/
+.joinTable{
+
+}
+.joinTable th{
+
+}
+.joinTable td{
+
+}
+.joinTable input{
+    float: left;
+    width: 20em;
+    height: 3em;
+    border-radius: 10px;
+        margin-top: 5px;
 }

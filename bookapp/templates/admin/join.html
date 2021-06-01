@@ -1,14 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  {% extends '../main/main.html' %}
+  {% load static %}
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-  {% extends '../main/main.html' %}
   {% block page %}
-  <div class="row">
-    <h1>회원가입 페이지</h1>
+  <div class="join_row">
+      <table class="joinTable ">
+      <tr>
+          <th>ID</th>
+      </tr>
+      <tr>
+          <td>
+              <input type="text" name="id">
+              <button id="idBtn">중복체크</button>
+          </td>
+      </tr>
+      <tr>
+          <th>비밀번호</th>
+      </tr>
+      <tr>
+          <td>
+              <input type="password" name="pwd1">
+          </td>
+      </tr>
+      <tr>
+          <th>비밀번호 확인</th>
+      </tr>
+      <tr>
+          <td>
+              <input type="password" name="pwd2">
+          </td>
+      </tr>
+      <tr>
+          <th>이름</th>
+      </tr>
+      <tr>
+          <td>
+              <input type="text">
+          </td>
+      </tr>
+      <tr>
+          <th>생년월일</th>
+      </tr>
+      <tr>
+          <td>
+              <input type="date">
+          </td>
+      </tr>
+      <tr>
+          <th>우편번호</th>
+      </tr>
+      <tr>
+          <td>
+              <input type="text" disabled>
+              <button id="findBtn">우편번호 찾기</button>
+          </td>
+      </tr>
+       <tr>
+           <th>주소</th>
+       </tr>
+       <tr>
+           <td>
+             <input type="text" disabled>
+           </td>
+       </tr>
+       <tr>
+           <td>
+             <input type="text" >
+           </td>
+       </tr>
+          <tr>
+              <th>전화번호</th>
+          </tr>
+          <tr>
+              <td>
+                  <input type="text">
+              </td>
+          </tr>
+      </table>
   </div>
   {% endblock %}
 </body>
