@@ -102,4 +102,90 @@ def subkey(msg,mainkey):
         cur.execute(sql)
         data=cur.fetchone()
         print(data)
+# 우편번호
+def postFind(key):
+    conn=getConnection()
+    cur=conn.cursor()
+    sql=f"""
+            select zipcode, sido||gugun||dong||bunji 
+            from zipcode 
+            where gugun like '%'||'{key}'||'%' or dong like '%'||'{key}'||'%'
+            """
+    cur.execute(sql)
+    data=cur.fetchall()
+    cur.close()
+    conn.close()
+    return data
+def member(id):
+    conn = getConnection()
+    cur = conn.cursor()
+    sql=f"""
+            SELECT count(*) from member where id ='{id}'
+        """
+    cur.execute(sql)
+    data=cur.fetchone()
+    cur.close()
+    conn.close()
+    return data[0]
+def member_pwd(id,pwd):
+    conn = getConnection()
+    cur = conn.cursor()
+    sql = f"""
+                SELECT pwd from member where id ='{id}'
+            """
+    cur.execute(sql)
+    data = cur.fetchone()
+    cur.close()
+    conn.close()
+    return data[0]
+def basket(id):
+    conn =getConnection()
+    cur=conn.cursor()
+    sql=f"""
+                SELECT id,poster,title,price,ordercount,to_number(price,'999999'),no
+                FROM basket 
+                where id= '{id}'
+                order by no desc
+            """
 
+    cur.execute(sql)
+    data=cur.fetchall()
+    cur.close()
+    conn.close()
+    return  data
+
+def insertBasket(list):
+    conn= getConnection()
+    cur=conn.cursor()
+    sql=f"""
+            INSERT into basket Values( (SELECT NVL(max(no)+1,1) from basket),'{list[0]}','{list[1]}',
+            '{list[2]}','{list[3]}',{list[4]} )    
+    """
+    cur.execute(sql)
+    conn.commit()
+    cur.close()
+    conn.close()
+
+def deleteBasket(no):
+    conn =getConnection()
+    cur=conn.cursor()
+    sql=f"""
+            DELETE from basket
+            where no={no}
+            """
+    cur.execute(sql)
+    conn.commit()
+    cur.close()
+    conn.close()
+def signUser(list):
+    conn= getConnection()
+    cur=conn.cursor()
+    sql=f"""
+            INSERT into member Values('{list[0]}','{list[1]}','{list[2]}',To_date('{list[3]}','YYYY-dd-MM' ),'{list[4]}',
+            '{list[5]}','{list[6]}','{list[7]}','N'
+             )    
+    """
+    cur.execute(sql)
+    conn.commit()
+    cur.close()
+    conn.close()

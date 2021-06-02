@@ -10,6 +10,8 @@
 <body>
   {% block page %}
   <div class="join_row">
+      <form method="post" action="{% url 'sign' %}">
+          {% csrf_token %}
       <table class="joinTable ">
       <tr>
           <th>ID</th>
@@ -41,7 +43,7 @@
       </tr>
       <tr>
           <td>
-              <input type="text">
+              <input type="text" name="name">
           </td>
       </tr>
       <tr>
@@ -49,7 +51,7 @@
       </tr>
       <tr>
           <td>
-              <input type="date">
+              <input type="date" name="birth">
           </td>
       </tr>
       <tr>
@@ -57,7 +59,7 @@
       </tr>
       <tr>
           <td>
-              <input type="text" disabled>
+              <input type="text" disabled class="zipcode_input" name="code">
               <button id="findBtn">우편번호 찾기</button>
           </td>
       </tr>
@@ -66,12 +68,12 @@
        </tr>
        <tr>
            <td>
-             <input type="text" disabled>
+             <input type="text" disabled name="addr1" class="addr_input">
            </td>
        </tr>
        <tr>
            <td>
-             <input type="text" >
+             <input type="text"  name="addr2">
            </td>
        </tr>
           <tr>
@@ -79,10 +81,34 @@
           </tr>
           <tr>
               <td>
-                  <input type="text">
+                  <input type="text" name="tel">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <button class="signBtn">회원가입</button>
+                  <button>홈으로</button>
               </td>
           </tr>
       </table>
+           </form>
+  </div>
+  <div id="postFind">
+      <table class="table-hover" id="postTable">
+          <tr>
+              <td>
+                  <input type="text" id="pSearchInput">
+              </td>
+              <td>
+                  <button id="pSearchBtn">검색</button>
+              </td>
+          </tr>
+          <tr>
+              <th>우편번호</th>
+              <th>주소</th>
+          </tr>
+      </table>
+
   </div>
   {% endblock %}
 </body>

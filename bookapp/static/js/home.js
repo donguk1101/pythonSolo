@@ -3,7 +3,14 @@
     change(name);
 
 })*/
+$(document).ready(function(){
+    let name=window.location.pathname
+    arr={}
+    arr=name.split("/")
+    if(arr[2] !="home" ){
 
+    }
+})
 $(function(){
     $('li[class^=col_]').hover(function(){
         name=$(this).attr('class');

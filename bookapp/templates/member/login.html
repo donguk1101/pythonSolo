@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+  {% extends '../main/main.html' %}
+  {% load static %}
+</head>
+<body>
+ {% block page %}
+      <div class="login_row" no="{{id}}">
+          <form method="post" action="{% url 'userLogin' %}">
+              {% csrf_token %}
+          <table class="table loginTable">
+              <tr>
+                  <td class="text-right loginText">
+                      ID
+                  </td>
+                  <td class="text-left">
+                      <input type="text" name="id">
+                  </td>
+              </tr>
+              <tr>
+                  <td class="text-right loginText">
+                      비밀번호
+                  </td>
+                  <td class="text-left">
+                      <input type="password" name="pwd">
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="2">
+                      <button type="submit">로그인</button>
+                      <button>취소</button>
+                  </td>
+              </tr>
+          </table>
+          </form>
+      </div>
+{% endblock %}
+</body>
+</html>

@@ -4,6 +4,23 @@ $(function(){
 $(document).ready(function(){
         mathPrice()
 })
+$(document).on('click','.del_basket_Btn',function(){
+    let no=$(this).attr('no')
+    _this=$(this)
+    $.ajax({
+            type:'post',
+            data:{'no':no},
+            aync:false,
+            url:'deleteBasket',
+            success:function(result){
+                    _this.parent().parent().remove()
+                    mathPrice()
+            },error:function(error){
+                console.log("장바구니 삭제오류")
+            }
+
+    })
+})
 $(document).on('click','input[class^=price_input]',function(){
         let no=$(this).val()
         if(no == 0)

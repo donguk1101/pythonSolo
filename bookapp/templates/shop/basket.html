@@ -18,18 +18,20 @@
                 <th>금액</th>
                 <th>주문</th>
             </tr>
-                {% for i in "111111" %}
-            <tr>
+                {% for dd in list %}
+            <tr class="basket_tr">
                  <td ><input type="checkbox"></td>
                 <td >
-                    <img src="http://image.yes24.com/goods/101817855/L">
+                    <img src="{{dd.poster}}">
                 </td>
-                <td ><em><p>송일준 PD 제주도 한 달 살기</p></em></td>
+                <td ><em><p>{{dd.title}}</p></em></td>
                 <td >
                     <input type="number" value="1" size="5" class="price_input">
                 </td>
-                <td class="price" price="15300">15,300원</td>
-                <td ></td>
+                <td class="price" price="{{dd.realPrice}}">{{dd.price}}원</td>
+                <td>
+                    <button class="del_basket_Btn" no="{{dd.no}}">삭제</button>
+                </td>
             </tr>
                 {% endfor %}
             <tr>

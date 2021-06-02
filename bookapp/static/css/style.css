@@ -7,16 +7,22 @@ body{
     margin: 0px auto;
 }
 .join_row{
- width: 1200px;
-     margin: 0px 49em;
-     height:40em
+    width: 30em;
+    margin: 0px 0px 0px 49em;
+    float: left;
+    height: 40em;
+    display: block;
 }
 .head_row{
     width: 1200px;
     margin: 0px auto;
 }
 .main_row{
-    42em;
+
+}
+.login_row{
+    margin: 16em 40em;
+    width: 800px;
 }
 /*메뉴상단*/
 .searchbar{
@@ -278,4 +284,31 @@ body{
     height: 3em;
     border-radius: 10px;
         margin-top: 5px;
+}
+#postFind{
+    border: 1px solid black;
+    width: 27em;
+    height: 30em;
+    display: block;
+    float: left;
+    position: relative;
+    top: 11em;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.post_tr{
+       cursor:pointer;
+}
+/*로그인*/
+.loginTable{
+       border-color:white;
+}
+.loginTable input{
+    width: 20em;
+    height: 3em;
+    border-radius: 10px;
+}
+.loginText{
+        font-weight: bold;
+    font-size: 15pt;
 }

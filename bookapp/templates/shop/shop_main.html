@@ -13,9 +13,9 @@
       <table class="list_card">
           <tr>
               <td rowspan="4" width="30%" class="text-center">
-                  <img src="{{list.poster}}">
+                  <img src="{{list.poster}}" class="poster">
               </td>
-              <td width="70%" class="text_td" colspan="2"><b>{{list.title}}<b></b></td>
+              <td width="70%" class="text_td title" colspan="2">{{list.title}}</td>
           </tr>
           <tr>
               {% if list.subtitle == none %}
@@ -29,10 +29,10 @@
              | {{list.company}} </td>
           </tr>
           <tr>
-              <td width="40%"  class="text_td"><b>{{list.price}}원</b></td>
+              <td width="40%"  class="text_td"><b class="price">{{list.price}}원</b></td>
               <td class="list_Btn" width="30%">
                   <button class="jjim">찜</button>
-                  <button class="basket">장바구니</button>
+                  <button class="basket" user_id="{{session_id}}">장바구니</button>
               </td>
           </tr>
 
