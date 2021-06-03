@@ -3,6 +3,7 @@ $(function(){
 })
 $(document).ready(function(){
         mathPrice()
+
 })
 $(document).on('click','.del_basket_Btn',function(){
     let no=$(this).attr('no')
@@ -61,3 +62,6 @@ function  mathPrice(){
     $('#total').text(strPrice)
 
 }
+
+
+

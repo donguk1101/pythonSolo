@@ -2,14 +2,14 @@ $(document).ready(function(){
 
 })
 
-$(function(){
-    $('#findBtn').click(function(){
-            let a=$('.zipcode_input').val()
 
-    })
+$(document).on('click','.idBtn',function(){
+   let id=$('#id_input').val()
+      checkId(id)
+
+
 
 });
-
 $(document).on('click','#pSearchBtn',function(){
    let key=$('#pSearchInput').val();
    $('#pSearchInput').val('');
@@ -48,4 +48,28 @@ function showBungi(data){
 
 
     }
+}
+function checkId(id){
+    if(id != "" && id != undefined){
+    $.ajax({
+        type:'post',
+        data:{'id':id},
+        url:'checkId',
+        success:function(result){
+            if(result == 0){
+                $('#id_input').val('')
+                $('#id_input').attr('placeholder','id가 존재합니다')
+            }else if(result == 1){
+                $('#id_input').attr('placeholder','')
+                alert('사용가능합니다.')
+                $('#id_input').attr('readonly','true')
+            }
+        },error:function(error){
+            console.log("중복확인 에러")
+        }
+
+
+    })
+    }
+
 }

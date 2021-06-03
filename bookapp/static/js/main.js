@@ -1,3 +1,4 @@
+let count=0;
 $(document).ready(function(){
     $('.phone').hide();
 })
@@ -35,37 +36,83 @@ $(document).on('click','.chat_clear',function(){
     $('.phone').children('.bot_chat').remove();
     $('.phone').children('.user_chat').remove();
     $('.phone_input').attr('id','first');
+    $('.phone_input').attr('count','0');
+    count=0;
 })
 function booklist_loc(tb){
     location.href="../shop?tb="+tb
 }
 $(document).on('keydown','.phone_input',function(key){
         if(key.keyCode==13){
+                count++;
                 let user_msg=$('.phone_input').val();
-                send_message();
-
                 makeUser_chat(user_msg);
+                console.log(count)
+                if(count ==1){
+                    send_message();//환불
+                }else if( count == 2){
+                count=send_answer(count)   // count+=1
+                 $('.phone_input').attr('id','second')
+                }else if(count == 3){
+                     thirdMessage(count)
+                }else if(count == 4){
+                    count=send_answer(count)
+
+                }
                 $('.phone').scrollTop($('.phone')[0].scrollHeight);
                 $('.phone_input').val('')
         }
 })
 /*키워드 전송 함수 서버로 전송*/
-function send_message(){
-    let msg=$('#first').val();
-    msg=msg.trim()
-    if(msg == "" || msg == undefined)
-    return
+function send_message(count){
+    let msg=$('#first').val() || '';
+    if(msg == "" || msg == undefined){
+            count--;
+        return count
+        }
     $.ajax({
            type:'post',
            data:{'msg':msg},
            url:'../msg',
+           atnc:false,
            success:function(result){
                let key=result['key'];
-               makeBot_chat(key);
+               makeFirstBot_chat(key);
            },error:function(error){
-                alert("메세지 전송에러")
+                alert("이해 하지 못했습니다.띄어쓰기에 맞게 입력해주세요")
+                count--;
            }
     })
+    return count
+}
+
+
+
+function send_answer(count){
+    let msg=$('#answer').val() || '';
+    if(msg == "" || msg == undefined){
+           count--;
+        return count;
+        }
+    $.ajax({
+           type:'post',
+           data:{'msg':msg,'count':count},
+           url:'../answer',
+           aync:false,
+           success:function(result){
+                let bot_msg=result['msg']
+                makeBot_chat(bot_msg);//대답후 반응
+                count=result['count']
+                $('.phone_input').attr('count',Number(count)+1)
+                return count
+           },error:function(error){
+                count--;
+                makeBot_chat("이해 하지 못했습니다. 다시 입력해주세요")
+
+           }
+    })
+    console.log(count)
+    return count
 }
 function makeUser_chat(msg){
     msg=msg.trim()
@@ -80,7 +127,7 @@ function makeUser_chat(msg){
     )
 }
 
-function makeBot_chat(msg){
+function makeFirstBot_chat(msg){
      msg=msg.trim()
     if(msg == "" || msg == undefined)
     return
@@ -94,11 +141,41 @@ function makeBot_chat(msg){
     $('.phone').append(
         "<div class='bot_chat'>"+
         "<ul>"+
-        "<li>구매번호를 입력해주세요</li>"+
+        "<li>구매번호를 알고계신가요? </li>"+
       "</ul>"+
       "<div>"
     )
-    $('.phone_input').attr('id','second')
+    $('.phone_input').attr('id','answer')
 
 }
-
+function makeBot_chat(msg){
+    $('.phone').append(
+        "<div class='bot_chat'>"+
+        "<ul>"+
+        "<li>"+msg+"</li>"+
+      "</ul>"+
+      "<div>"
+    )
+}
+function thirdMessage(count){
+    let msg=$('#second').val()
+    if(msg == "" || msg == undefined)
+    return
+    makeBot_chat(msg+" 이 맞으신가요?")
+    $('.phone_input').attr('id','answer')
+    /*
+    if(msg == "" || msg == undefined)
+    return
+    $.ajax({
+           type:'post',
+           data:{'msg':msg},
+           url:'../orderNumber',
+           success:function(result){
+                makeBot_chat(result);//대답후 반응
+                let no=$('.phone_input').attr('count')
+                $('.phone_input').attr('count',Number(no)+1)
+           },error:function(error){
+                makeBot_chat("이해 하지 못했습니다. 다시 입력해주세요")
+           }
+    })*/
+}

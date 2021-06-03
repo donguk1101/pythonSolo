@@ -157,6 +157,7 @@ body{
     border-radius: 23px;
     overflow-y: auto;
     overflow-x: hidden;
+       padding-bottom: 3em;
 }
 .phone_input{
     display: block;
@@ -311,4 +312,7 @@ body{
 .loginText{
         font-weight: bold;
     font-size: 15pt;
+}
+.title{
+    font-weight:bold;
 }

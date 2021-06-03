@@ -1,5 +1,5 @@
 from django.db import models
-import cx_Oracle
+import cx_Oracle, re
 from konlpy.tag import Komoran
 
 # Create your models here.
@@ -66,6 +66,14 @@ def komoran(msg):
     komo = Komoran()
     arr=komo.nouns(msg)
     return arr
+def secondKomoran(msg):
+    komo = Komoran()
+    arr=komo.pos(msg)
+    print(arr)
+    arr=komo.nouns(msg)
+    print(arr)
+    return  arr
+
 def mainkey(key):
     conn=getConnection()
     cur=conn.cursor()
@@ -88,7 +96,43 @@ def mainkey(key):
     if len(list) == 0:
         list.append(" ")
     return  list
+def answer(msg):
+    conn=getConnection()
+    cur=conn.cursor()
+    msg=re.sub('[^가-힣]','',msg)
+    sql=f"""
+                SELECT result from answer 
+                where answer='{msg}'
+            """
+    cur.execute(sql)
+    data=cur.fetchone()
+    cur.close()
+    conn.close()
+    result=""
+    if data[0] == 1:
+        result="주문 번호를 입력해주세요"
+    elif data[0] == 0:
+        result="최근 한 달간 주문내역을 조회하는 중입니다.      잠시만 기다려주세요"
+    return result
+def answer2(msg):
+    conn=getConnection()
+    cur=conn.cursor()
+    msg=re.sub('[^가-힣]','',msg)
 
+    sql=f"""
+                SELECT result from answer 
+                where answer='{msg}'
+            """
+    cur.execute(sql)
+    data=cur.fetchone()
+    cur.close()
+    conn.close()
+    result=""
+    if data[0] == 1:
+        result="입력하신 주문번호로 환불접수하였습니다."
+    elif data[0] == 0:
+        result="다시 입력해주세요"
+    return result
 def subkey(msg,mainkey):
     conn=getConnection()
     cur=conn.cursor()
@@ -189,3 +233,16 @@ def signUser(list):
     conn.commit()
     cur.close()
     conn.close()
+
+def checkId(id):
+    conn=getConnection()
+    cur=conn.cursor()
+    sql=f"""
+            SELECT count(*) from member
+            WHERE id= '{id}' 
+            """
+    cur.execute(sql)
+    data=cur.fetchone()
+    cur.close()
+    conn.close()
+    return  data[0]

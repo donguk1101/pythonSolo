@@ -10,18 +10,17 @@
 <body>
     {% block mypage %}
     <div class="row">
-        <table class="table basketTable">
-            <tr class="basket_th">
+        <h3>주문 확인</h3>
+        <table class="table ordeListTable">
+            <tr>
                 <th>    </th>
                 <th colspan="2" >상품정보</th>
                 <th>수량</th>
                 <th>금액</th>
                 <th>주문</th>
             </tr>
-
-            {% if list %}
                 {% for dd in list %}
-            <tr class="basket_tr">
+            <tr class="ordeList_tr">
                  <td ><input type="checkbox"></td>
                 <td >
                     <img src="{{dd.poster}}">
@@ -32,15 +31,10 @@
                 </td>
                 <td class="price" price="{{dd.realPrice}}">{{dd.price}}원</td>
                 <td>
-                    <button class="del_basket_Btn" no="{{dd.no}}">삭제</button>
+                    <button class="del_ordeList_Btn" no="{{dd.no}}">삭제</button>
                 </td>
             </tr>
-            {% endfor %}
-            {% else %}
-            <tr>
-                <td colspan="5">장바구니에 담긴 상품이 없습니다</td>
-            </tr>
-            {% endif %}
+                {% endfor %}
             <tr>
                 <td colspan="6">총 예상금액: <strong id="total"></strong>원</td>
             </tr>

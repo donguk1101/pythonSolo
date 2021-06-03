@@ -13,7 +13,11 @@ def index(request):
 
     return render(request,'main/index.html')
 def home(request):
-    id = request.session['id']
+    try:
+        id = request.session['id']
+    except Exception as e:
+        id = None
+
     return  render(request,'main/home.html',{'session_id':id})
 
 #Shop
@@ -45,6 +49,22 @@ def re_msg(request):
     key=models.mainkey(models.komoran(msg))
     box={'key':str(key[0])}
     return  HttpResponse(json.dumps(box),content_type="application/json")
+def answer(request):
+    msg=request.POST['msg']
+    count=request.POST['count']
+    id = request.session['id']
+    result=""
+    if count == "2":
+        result=models.answer(msg)
+    elif count == "4":
+        result=models.answer2(msg)
+        if result == "다시 입력해주세요":
+            count = "2"
+    print(count)
+    print(result)
+    box={"msg":result,"count":count}
+    return  HttpResponse(json.dumps(box),content_type="application/json")
+
 #basket
 def basket(request):
     id=request.session['id']
@@ -57,6 +77,13 @@ def basket(request):
     return  render(request,'shop/basket.html',{'session_id':id,"list":list})
 
 #join
+def checkId(request):
+    id=request.POST['id']
+    db_id=models.checkId(id)
+    result="0"
+    if db_id == 0:
+        result="1"
+    return HttpResponse(result,content_type="text")
 def join(request):
     return  render(request,'member/join.html')
 #우편번호
@@ -109,3 +136,6 @@ def sign(request):
     list[7] = request.POST['tel']
     models.signUser(list)
     return  redirect('home')
+def orderList(request):
+
+    return render(request,'shop/orderList.html')

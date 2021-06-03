@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  {% extends 'main/main.html' %}
+  {% load static %}
+</head>
+<body>
+  {% block page %}
+  <div class="main_row">
+    <ul class="side_menu">
+      <li><a href="{% url 'basket' %}">장바구니</a></li>
+      <li><a href="{% url 'orderList' %}">주문 확인</a></li>
+    </ul>
+  </div>
+  {% block mypage %}
+
+  {% endblock %}
+
+  {% endblock %}
+</body>
+</html>

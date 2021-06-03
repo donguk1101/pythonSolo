@@ -18,8 +18,8 @@
       </tr>
       <tr>
           <td>
-              <input type="text" name="id">
-              <button id="idBtn">중복체크</button>
+              <input type="text" name="id" id="id_input">
+              <button type="button" id="idBtn" class="idBtn" value="0">중복체크</button>
           </td>
       </tr>
       <tr>
@@ -59,8 +59,8 @@
       </tr>
       <tr>
           <td>
-              <input type="text" disabled class="zipcode_input" name="code">
-              <button id="findBtn">우편번호 찾기</button>
+              <input type="text" readonly class="zipcode_input" name="code">
+              <button id="findBtn" type="button">우편번호 찾기</button>
           </td>
       </tr>
        <tr>
@@ -68,7 +68,7 @@
        </tr>
        <tr>
            <td>
-             <input type="text" disabled name="addr1" class="addr_input">
+             <input type="text" readonly name="addr1" class="addr_input">
            </td>
        </tr>
        <tr>
@@ -100,7 +100,7 @@
                   <input type="text" id="pSearchInput">
               </td>
               <td>
-                  <button id="pSearchBtn">검색</button>
+                  <button type="button" id="pSearchBtn">검색</button>
               </td>
           </tr>
           <tr>
