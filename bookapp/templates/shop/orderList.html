@@ -10,34 +10,34 @@
 <body>
     {% block mypage %}
     <div class="row">
-        <h3>주문 확인</h3>
-        <table class="table ordeListTable">
+        <h3>주문 내역</h3>
+        <table class="table orderListTable">
             <tr>
                 <th>    </th>
                 <th colspan="2" >상품정보</th>
                 <th>수량</th>
-                <th>금액</th>
-                <th>주문</th>
+                <th>총금액</th>
+                <th>주문일</th>
             </tr>
                 {% for dd in list %}
-            <tr class="ordeList_tr">
-                 <td ><input type="checkbox"></td>
+            <tr class="orderList_tr">
+                 <td></td>
                 <td >
                     <img src="{{dd.poster}}">
                 </td>
-                <td ><em><p>{{dd.title}}</p></em></td>
-                <td >
-                    <input type="number" value="1" size="5" class="price_input">
+                <td ><em><p>{{dd.title}}</p></em>
+
                 </td>
-                <td class="price" price="{{dd.realPrice}}">{{dd.price}}원</td>
                 <td>
-                    <button class="del_ordeList_Btn" no="{{dd.no}}">삭제</button>
+                    {{dd.ordercount}}
+                </td>
+                <td class="price" price="{{dd.realPrice}}">{{dd.total}}원(개당/{{dd.price}})</td>
+                <td>
+                        {{dd.ordertime}}
                 </td>
             </tr>
                 {% endfor %}
-            <tr>
-                <td colspan="6">총 예상금액: <strong id="total"></strong>원</td>
-            </tr>
+
         </table>
     </div>
 

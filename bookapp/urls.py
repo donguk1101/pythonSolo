@@ -18,5 +18,5 @@ urlpatterns=[
     path('basket/deleteBasket',views.deleteBasket),
     path('join/sign',views.sign,name="sign"),
     path('join/checkId',views.checkId,name='checkId'),
-
+    path('basket/order',views.order,name="order"),
 ]

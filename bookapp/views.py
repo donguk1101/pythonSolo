@@ -17,8 +17,18 @@ def home(request):
         id = request.session['id']
     except Exception as e:
         id = None
-
-    return  render(request,'main/home.html',{'session_id':id})
+    list=[]
+    sList=[]
+    bList=models.bestSeller()
+    count=0
+    for dd in bList:
+        box={"title":dd[0],"poster":dd[1]}
+        if count < 5:
+            list.append(box)
+        else:
+            sList.append(box)
+        count+=1
+    return  render(request,'main/home.html',{"list":list,"sList":sList})
 
 #Shop
 def shop_main(request):
@@ -39,7 +49,7 @@ def shop_main(request):
     bookList=models.bookList(curpage,tablename)
     bl=[]
     for b in bookList:
-        bb={"no":b[0],"title":b[1],"subtitle":b[2],"poster":b[3],"author":b[4],"company":b[5],"price":b[6]}
+        bb={"no":b[0],"title":b[1],"subtitle":b[2],"poster":b[3],"author":b[4],"company":b[5],"price":b[6],"tb":b[7]}
         bl.append(bb)
     return  render(request,'shop/shop_main.html',{"session_id":id,"totalpage":totalpage,"endpage":endpage,"startpage":startpage,"tablename":vTablename,'bookList':bl,"range":range(startpage,endpage+1)})
 
@@ -54,15 +64,18 @@ def answer(request):
     count=request.POST['count']
     id = request.session['id']
     result=""
+    list=[]
     if count == "2":
         result=models.answer(msg)
+        if result == "최근 한 달간 주문내역을 조회하는 중입니다." :
+            list=models.findOrderNum(id)
     elif count == "4":
         result=models.answer2(msg)
         if result == "다시 입력해주세요":
             count = "2"
     print(count)
     print(result)
-    box={"msg":result,"count":count}
+    box={"msg":result,"count":count,"list":list}
     return  HttpResponse(json.dumps(box),content_type="application/json")
 
 #basket
@@ -71,7 +84,7 @@ def basket(request):
     data=models.basket(id)
     list=[]
     for d in data:
-        dd={"id":d[0],"poster":d[1],"title":d[2],"price":d[3],"ordercount":d[4],"realPrice":d[5],"no":d[6]}
+        dd={"id":d[0],"poster":d[1],"title":d[2],"price":d[3],"ordercount":d[4],"realPrice":d[5],"no":d[6],"tb":d[7]}
         list.append(dd)
 
     return  render(request,'shop/basket.html',{'session_id':id,"list":list})
@@ -111,11 +124,12 @@ def sessionDelete(request):
     return  redirect('home')
 def basketAdd(request):
     list={}
-    list[0]=request.POST['id']
+    list[0]=request.session['id']
     list[1] = request.POST['poster']
     list[2] = request.POST['title']
     list[3] = request.POST['price']
     list[4] = request.POST['ordercount']
+    list[5] = request.POST['tb']
     models.insertBasket(list)
     return HttpResponse("success",content_type="text")
 
@@ -136,6 +150,22 @@ def sign(request):
     list[7] = request.POST['tel']
     models.signUser(list)
     return  redirect('home')
+def order(request):
+    List=request.POST['list']
+    id=request.session['id']
+    models.insertOrder(List,id)
+    return HttpResponse("성공")
 def orderList(request):
-
-    return render(request,'shop/orderList.html')
+    id=request.session['id']
+    try:
+        page=request.GET['page']
+    except Exception as e:
+        page="1"
+    curpage=int(page)
+    list=[]
+    data=models.orderList(id,curpage)
+    for dd in data:
+        box={"no":dd[0],"id":dd[1],"poster":dd[2],"title":dd[3],"price":dd[4],"ordercount":dd[5],"ordertime":dd[6],"total":dd[7]}
+        list.append(box)
+    totalpage=models.orderTotalpage(id)
+    return render(request,'shop/orderList.html',{'totalPage':totalpage,"list":list})

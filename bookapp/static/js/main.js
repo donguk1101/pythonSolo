@@ -1,8 +1,30 @@
 let count=0;
+let time=0
+let timecount=0
 $(document).ready(function(){
     $('.phone').hide();
+    $('.best2').hide();
+    setInterval("bestSeller()", 2000)
 })
+function bestSeller(){
+        let no=$('.best1').attr('val');
+        if(no==1){
+            $('.best1').attr('val','0');
+            $('.best2').attr('val','1');
+            $('.best1').hide()
+            $('.best2').show()
 
+        }else{
+            $('.best2').attr('val','0');
+            $('.best1').attr('val','1');
+            $('.best2').hide()
+            $('.best1').show()
+
+        }
+
+
+
+}
 $(function(){
     $('.side_menu > li').mouseover(function(){
         $('.side_detail_menu').hide()
@@ -74,7 +96,6 @@ function send_message(count){
            type:'post',
            data:{'msg':msg},
            url:'../msg',
-           atnc:false,
            success:function(result){
                let key=result['key'];
                makeFirstBot_chat(key);
@@ -83,7 +104,6 @@ function send_message(count){
                 count--;
            }
     })
-    return count
 }
 
 
@@ -103,6 +123,18 @@ function send_answer(count){
                 let bot_msg=result['msg']
                 makeBot_chat(bot_msg);//대답후 반응
                 count=result['count']
+                let list=result['list']
+                 $('.phone').scrollTop($('.phone')[0].scrollHeight);
+                if(list.length > 0){
+                    for(i=0;i<list.length; i++){
+                        findNum_botChat(list[i])
+                        makeBot_chat("번호를 입력해주세요")
+                        $('.phone').scrollTop($('.phone')[0].scrollHeight);
+
+                    }
+
+
+                }
                 $('.phone_input').attr('count',Number(count)+1)
                 return count
            },error:function(error){
@@ -163,19 +195,22 @@ function thirdMessage(count){
     return
     makeBot_chat(msg+" 이 맞으신가요?")
     $('.phone_input').attr('id','answer')
-    /*
-    if(msg == "" || msg == undefined)
-    return
-    $.ajax({
-           type:'post',
-           data:{'msg':msg},
-           url:'../orderNumber',
-           success:function(result){
-                makeBot_chat(result);//대답후 반응
-                let no=$('.phone_input').attr('count')
-                $('.phone_input').attr('count',Number(no)+1)
-           },error:function(error){
-                makeBot_chat("이해 하지 못했습니다. 다시 입력해주세요")
-           }
-    })*/
+
+}
+function findNum_botChat(list){
+    $('.phone').append(
+        "<div class='bot_chat'>"+
+        "<ul>"+
+        "<li>주문번호:"+list.no+"</li><br>"+
+        "<li>주문일자:"+list.ordertime+"</li><br>"+
+      "</ul>"+
+       "<ul>"+
+        "<li><img src="+list.poster+"></li>"+
+      "</ul>"+
+      "<ul>"+
+        "<li>"+list.title+"</li>"+
+      "</ul>"+
+      "<div>"
+    )
+
 }

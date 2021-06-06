@@ -253,16 +253,22 @@ body{
     margin-left: 19em;
 }
 /*장바구니*/
-.basketTable{
+.basketTable,.orderListTable{
     margin-top: 8em;
     width:730px;
 }
 .basketTable th,td{
     text-align:center;
 }
-
+.orderListTable th,td{
+ text-align:center;
+}
 .basketTable img{
     width:80px;
+    height:115px;
+}
+.orderListTable img{
+width:80px;
     height:115px;
 }
 .price_input{
@@ -305,9 +311,10 @@ body{
        border-color:white;
 }
 .loginTable input{
-    width: 20em;
+    width: 26em;
     height: 3em;
     border-radius: 10px;
+    margin-left: 4em;
 }
 .loginText{
         font-weight: bold;
@@ -315,4 +322,41 @@ body{
 }
 .title{
     font-weight:bold;
+}
+.loginBtn{
+        background-color: #97d3e2;
+    width: 9em;
+    border: 1px solid #ffe9f4;
+    border-radius: 10px;
+    height: 32px;
+}
+.totalBtn{
+        background-color: #ffffffc7;
+    border: 2px solid #97d3e2;
+    width: 7em;
+    border-radius: 11px;
+    color: #000000;
+    font-family: 나눔고딕;
+    height:28px;
+}
+.totalBtn:hover{
+    color:white;
+    background-color: #fdbdbd;
+    border:none;
+
+}
+.bestseller{
+    width: 1200px;
+    margin-left: 32em;
+}
+.bs_title{
+        display: block;
+    width: 967px;
+    height: 32px;
+    border: 2px solid #97d4e2;
+    margin-left: 17px;
+    border-top-left-radius: 20px;
+    padding-left: 16px;
+    border-top-right-radius: 20px;
+    font-size: 16pt;
 }

@@ -16,7 +16,7 @@
   <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/basket.js' %}"></script>
 </head>
-<body>
+<body class="body">
 <div class="head_row" style="height:150px">
   <img src="{% static 'img/logo1.png' %}" class="logo_img">
   <input type="text" class="searchbar input-lg" size="50" autocomplete="off">
@@ -26,11 +26,11 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="{% url 'index' %}">Home</a></li>
       <li><a href="../shop/?tb=임신/출산">국내 도서</a></li>
-       {% if session_id %}
+       {% if request.session.id %}
       <li><a href="../basket/">마이페이지</a></li>
       {% endif %}
       <li><a href="../join/">회원가입</a></li>
-      {% if session_id %}
+      {% if request.session.id %}
       <li><a href="../userLogout/">로그아웃</a></li>
       {% else %}
       <li><a href="../login_ok/">로그인</a></li>

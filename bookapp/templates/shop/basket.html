@@ -21,18 +21,18 @@
 
             {% if list %}
                 {% for dd in list %}
-            <tr class="basket_tr">
-                 <td ><input type="checkbox"></td>
+            <tr class="basket_tr" no="{{dd.no}}" tb="{{dd.tb}}">
+                 <td ><input type="checkbox" class="check_basket"></td>
                 <td >
-                    <img src="{{dd.poster}}">
+                    <img src="{{dd.poster}}" class="basket_poster">
                 </td>
-                <td ><em><p>{{dd.title}}</p></em></td>
+                <td ><em><p class="basket_title">{{dd.title}}</p></em></td>
                 <td >
                     <input type="number" value="1" size="5" class="price_input">
                 </td>
                 <td class="price" price="{{dd.realPrice}}">{{dd.price}}원</td>
                 <td>
-                    <button class="del_basket_Btn" no="{{dd.no}}">삭제</button>
+                    <button class="del_basket_Btn totalBtn" no="{{dd.no}}">삭제</button>
                 </td>
             </tr>
             {% endfor %}
@@ -42,7 +42,10 @@
             </tr>
             {% endif %}
             <tr>
-                <td colspan="6">총 예상금액: <strong id="total"></strong>원</td>
+                <td colspan="5">총 예상금액: <strong id="total"></strong>원</td>
+                <td>
+                    <button class="orderBtn totalBtn">결제</button>
+                </td>
             </tr>
         </table>
     </div>
